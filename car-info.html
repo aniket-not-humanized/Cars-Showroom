@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car-info</title>
+    <style>
+        body {
+            color: white;
+            text-align: center;
+            background-color: black;
+            font-family: 'Bauhaus 93', Arial, sans-serif;
+            position: relative; /* For positioning the profile info */
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 10px;
+        }
+        .flex {
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid #FFFFFF;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .flex img {
+            max-width: 45%;
+            height: auto;
+            margin: 10px;
+        }
+        .footer {
+            position: fixed;
+            background-color: #28282B;
+            font-family: courier;
+            bottom: 0;
+            width: 100%;
+            color: white;
+        }
+        .user-info {
+            position: absolute; /* Positioning it at the top right */
+            top: 10px;
+            right: 10px;
+            text-align: left;
+            color: white;
+        }
+        .user-info img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            vertical-align: middle; /* Aligns image with text */
+        }
+        video {
+            border: 5px groove lightblue;
+            padding: 30px;
+            width: 600px; /* Increased video width */
+            height: auto; /* Maintains aspect ratio */
+        }
+        .hidden {
+            display: none; /* Class to hide elements */
+        }
+        .clickable {
+            color: lightblue; /* Style for clickable text */
+            cursor: pointer; /* Cursor change on hover */
+            text-decoration: underline; /* Underline for effect */
+        }
+        .car-definition {
+            display: flex; /* Use flexbox to position answer and video side by side */
+            justify-content: center;
+            align-items: center;
+        }
+        .car-definition p {
+            margin-right: 20px; /* Space between text and video */
+        }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        <img id="profilePic" src="" alt="Profile Picture">
+        <span id="username"></span>
+    </div>
+    <div class="footer">
+        <h4>&copy; Aniket Kumar Raj</h4>
+    </div>
+    <h1>Some of the G.O.A.T Vehicles</h1>
+
+    <div class="flex-container">
+        <div class="flex">
+            <img src="bmw-ix-flow.png" alt="BMW IX Flow">
+            <div>
+                <h3>BMW IX Flow</h3>
+                <p>This car has the special ability to change its color.</p>
+                <p>Price: Rs. 1.40cr</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="tesla-model-x.png" alt="Tesla Model X">
+            <div>
+                <h3>Tesla Model X</h3>
+                <p>Electric SUV with Falcon Wing doors and autopilot.</p>
+                <p>Price: Rs. 2.00cr</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="mercedes-eqs.png" alt="Mercedes EQS">
+            <div>
+                <h3>Mercedes EQS</h3>
+                <p>Luxury electric sedan with advanced autonomous features.</p>
+                <p>Price: Rs. 1.75cr</p>
+            </div>
+        </div>
+
+        <!-- Additional Car Entries -->
+        <div class="flex">
+            <img src="audi-e-tron.png" alt="Audi e-tron">
+            <div>
+                <h3>Audi e-tron</h3>
+                <p>Electric SUV with impressive performance and luxury.</p>
+                <p>Price: Rs. 1.30cr</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="porsche-taycan.png" alt="Porsche Taycan">
+            <div>
+                <h3>Porsche Taycan</h3>
+                <p>High-performance electric sedan with sporty handling.</p>
+                <p>Price: Rs. 2.10cr</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="ford-mustang-mach-e.png" alt="Ford Mustang Mach-E">
+            <div>
+                <h3>Ford Mustang Mach-E</h3>
+                <p>Electric SUV with iconic Mustang styling and performance.</p>
+                <p>Price: Rs. 70.00L</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="jaguar-i-pace.png" alt="Jaguar I-PACE">
+            <div>
+                <h3>Jaguar I-PACE</h3>
+                <p>Luxury electric SUV with stunning design and performance.</p>
+                <p>Price: Rs. 1.10cr</p>
+            </div>
+        </div>
+
+        <div class="flex">
+            <img src="volkswagen-id4.png" alt="Volkswagen ID.4">
+            <div>
+                <h3>Volkswagen ID.4</h3>
+                <p>Versatile electric SUV with spacious interior and great range.</p>
+                <p>Price: Rs. 60.00L</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="clickable" id="carQuestion">What's a CAR??(CLICK TO KNOW)</p>
+
+    <div id="carDefinition" class="hidden car-definition">
+        <p class="hidden">A car is more than just a mode of transportation; it's a symbol of freedom and potential. It represents the journey of life, enabling us to navigate our own paths, explore new horizons, and chase our dreams. Each time you get behind the wheel, you're not just driving; you're embarking on an adventure filled with possibilities. Cars remind us that while the destination is important, the experiences we gather along the way shape who we are. They encourage us to take risks, push boundaries, and embrace the thrill of the unknown. In essence, a car is a motivation to keep moving forward, overcoming obstacles, and reaching for greatness.</p>
+        <video controls>
+            <source src="chills.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <p>----------</p>
+    <p>----------</p>
+    <p>----------</p>
+
+    <script>
+        // Retrieve username and profile picture from localStorage
+        document.getElementById('username').textContent = localStorage.getItem('username');
+        document.getElementById('profilePic').src = localStorage.getItem('profilePic');
+
+        // Toggle the visibility of the car definition on click
+        document.getElementById('carQuestion').onclick = function() {
+            var carDefinition = document.getElementById('carDefinition');
+            var answerText = carDefinition.querySelector('p'); // Select the answer text
+            if (carDefinition.classList.contains('hidden')) {
+                carDefinition.classList.remove('hidden');
+                answerText.classList.remove('hidden'); // Show the answer text
+                var video = carDefinition.querySelector('video');
+                video.play(); // Play the video when shown
+            } else {
+                carDefinition.classList.add('hidden');
+                answerText.classList.add('hidden'); // Hide the answer text
+                var video = carDefinition.querySelector('video');
+                video.pause(); // Pause the video when hidden
+                video.currentTime = 0; // Reset video to start
+            }
+        };
+    </script>
+</body>
+</html>

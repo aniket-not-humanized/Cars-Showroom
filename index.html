@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            color: white;
+            text-align: center;
+            background-color: black;
+            font-family: 'Bauhaus 93', Arial, sans-serif;
+        }
+        .login-container {
+            margin: auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+        .profile-pics {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 5px;
+            transition: border 0.3s;
+        }
+        .profile-pic:hover {
+            border: 2px solid white;
+        }
+        .selected {
+            border: 2px solid yellow; /* Highlight selected profile picture */
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter your username" required>
+        
+        <div class="profile-pics">
+            <!-- Profile Picture Options -->
+            <img src="profile-pics/1.png" class="profile-pic" id="pic1" alt="Profile Picture 1" onclick="selectProfilePic('profile-pics/1.png', this)">
+            <img src="profile-pics/2.png" class="profile-pic" id="pic2" alt="Profile Picture 2" onclick="selectProfilePic('profile-pics/2.png', this)">
+            <img src="profile-pics/3.png" class="profile-pic" id="pic3" alt="Profile Picture 3" onclick="selectProfilePic('profile-pics/3.png', this)">
+            <img src="profile-pics/4.png" class="profile-pic" id="pic4" alt="Profile Picture 4" onclick="selectProfilePic('profile-pics/4.png', this)">
+            <img src="profile-pics/5.png" class="profile-pic" id="pic5" alt="Profile Picture 5" onclick="selectProfilePic('profile-pics/5.png', this)">
+            <img src="profile-pics/6.png" class="profile-pic" id="pic6" alt="Profile Picture 6" onclick="selectProfilePic('profile-pics/6.png', this)">
+            <img src="profile-pics/7.png" class="profile-pic" id="pic7" alt="Profile Picture 7" onclick="selectProfilePic('profile-pics/7.png', this)">
+            <img src="profile-pics/8.png" class="profile-pic" id="pic8" alt="Profile Picture 8" onclick="selectProfilePic('profile-pics/8.png', this)">
+        </div>
+        
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        let selectedProfilePic = '';
+
+        function selectProfilePic(picPath, element) {
+            // Deselect all profile pictures
+            const pics = document.querySelectorAll('.profile-pic');
+            pics.forEach(pic => {
+                pic.classList.remove('selected'); // Remove highlight from all
+            });
+            // Select the clicked profile picture
+            selectedProfilePic = picPath;
+            element.classList.add('selected'); // Highlight selected picture
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+
+            if (username && selectedProfilePic) {
+                // Redirect to the main page
+                localStorage.setItem('username', username); // Store username in localStorage
+                localStorage.setItem('profilePic', selectedProfilePic); // Store profile picture in localStorage
+                window.location.href = 'car-info.html'; // Redirect to the main page
+            } else {
+                alert('Please enter your username and select a profile picture.');
+            }
+        }
+    </script>
+</body>
+</html>
